@@ -2,7 +2,9 @@
 
 // Important
 import data.Player;
+#if desktop
 import data.Discord.DiscordClient;
+#end
 import data.PopUp.PopUpEvent;
 import data.AssetPaths;
 import data.backend.FramePerSecond;
