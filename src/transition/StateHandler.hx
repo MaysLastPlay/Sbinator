@@ -19,7 +19,8 @@ class StateHandler extends FlxUIState
     }
 
     public static var activeState:FlxState;
-    public static function switchToNewState(#if flixel >= "5.6.0" ?target:NextState #else ?target:FlxState #end):Void
+    #if (flixel >= "5.6.0")
+    public static function switchToNewState(?target:NextState):Void
     {
         var trans = new Transition(false);
         trans.callbackFinished = function()
@@ -29,4 +30,16 @@ class StateHandler extends FlxUIState
     
         if(activeState != null) activeState.openSubState(trans);
     }
+    #else
+    public static function switchToNewState(?target:FlxState):Void
+    {
+        var trans = new Transition(false);
+        trans.callbackFinished = function()
+        {
+            if(target != null) FlxG.switchState(target); else FlxG.resetState();
+        };
+    
+        if(activeState != null) activeState.openSubState(trans);
+    }
+#end
 }
