@@ -43,7 +43,7 @@ jobs:
         run: |
           haxelib setup ~/haxelib
           haxelib install flixel --quiet
-          haxelib install flixel-addons--quiet
+          haxelib install flixel-addons --quiet
           haxelib install flixel-ui --quiet
           haxelib install lime 8.0.2 --quiet
           haxelib set lime 8.0.2
