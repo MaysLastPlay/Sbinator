@@ -42,8 +42,8 @@ jobs:
       - name: Installing Libraries
         run: |
           haxelib setup ~/haxelib
-          haxelib install flixel 5.6.1 --quiet
-          haxelib set flixel 5.6.1
+          haxelib install flixel 5.2.2 --quiet
+          haxelib set flixel 5.2.2
           haxelib install flixel-addons 3.0.2 --quiet
           haxelib set flixel-addons 3.0.2
           haxelib install flixel-ui --quiet
