@@ -5,7 +5,9 @@ package transition;
 import flixel.FlxG;
 import flixel.FlxState;
 import flixel.addons.ui.FlxUIState;
+#if (flixel >= "5.6.0")
 import flixel.util.typeLimit.NextState;
+#end
 
 class StateHandler extends FlxUIState
 {
@@ -17,7 +19,7 @@ class StateHandler extends FlxUIState
     }
 
     public static var activeState:FlxState;
-    public static function switchToNewState(?target:NextState):Void
+    public static function switchToNewState(#if flixel >= "5.6.0" ?target:NextState #else ?target:FlxState #end):Void
     {
         var trans = new Transition(false);
         trans.callbackFinished = function()
