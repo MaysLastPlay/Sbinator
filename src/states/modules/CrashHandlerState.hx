@@ -93,8 +93,19 @@ class CrashHandlerState extends StateHandler
 
     override public function update(elapsed:Float)
     {
-        if (FlxG.keys.justPressed.ESCAPE && controlsCheck) tweenOut();
-        if (FlxG.keys.justPressed.ENTER && controlsCheck) FlxG.openURL("https://github.com/Stefan2008Git/Sbinator/issues");
+		var pressedEnter:Bool = FlxG.keys.justPressed.ENTER;
+
+		#if mobile
+		for (touch in FlxG.touches.list)
+		{
+			if (touch.justPressed)
+			{
+				pressedEnter = true;
+			}
+		}
+		#end
+        if (FlxG.keys.justPressed.ESCAPE #if mobile || TouchInput.BACK() #end && controlsCheck) tweenOut();
+        if (pressedEnter && controlsCheck) FlxG.openURL("https://github.com/Stefan2008Git/Sbinator/issues");
 
         super.update(elapsed);
     }
