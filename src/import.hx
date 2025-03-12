@@ -10,9 +10,9 @@ import data.AssetPaths;
 import data.backend.FramePerSecond;
 import data.backend.FramePerSecond.Watermark;
 import data.backend.Memory;
+import data.mobile.TouchInput;
 import transition.Transition;
 import transition.StateHandler;
-import mobile.TouchInput;
 
 // States
 import states.PlayState;
