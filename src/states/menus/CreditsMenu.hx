@@ -117,9 +117,9 @@ class CreditsMenu extends StateHandler
 
     override public function update(elapsed:Float)
     {
-        final left = FlxG.keys.anyPressed([LEFT, A]);
-        final right = FlxG.keys.anyPressed([RIGHT, D]);
-        final press = FlxG.keys.anyPressed([ENTER, P]);
+        final left = FlxG.keys.anyPressed([LEFT, A]) #if mobile || TouchInput.isSwipe(left) #end;
+        final right = FlxG.keys.anyPressed([RIGHT, D]) #if mobile || TouchInput.isSwipe(right) #end;
+        final press = FlxG.keys.anyPressed([ENTER, P]) #if mobile || TouchInput.justPressed(menionedPeople[currentlySelected]) #end;
 
         var coolPeople = menionedPeople[currentlySelected];
         creditsText.text = coolPeople.name + "\n" + coolPeople.ability + "\n" + coolPeople.description;

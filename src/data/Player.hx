@@ -27,9 +27,9 @@ class Player extends FlxSprite
 
     private function playerMovement()
     {
-        final left = FlxG.keys.anyPressed([LEFT, A]);
-        final right = FlxG.keys.anyPressed([RIGHT, D]);
-        final shift = FlxG.keys.anyPressed([SHIFT]);
+        final left = FlxG.keys.anyPressed([LEFT, A]) #if mobile || TouchInput.isSwipe(left) #end;
+        final right = FlxG.keys.anyPressed([RIGHT, D]) #if mobile || TouchInput.isSwipe(right) #end;
+        final shift = FlxG.keys.anyPressed([SHIFT]) #if mobile || TouchInput.isSwipe(up) #end;
 
         // Walking function
         if (left && right)

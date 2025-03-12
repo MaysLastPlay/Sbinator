@@ -81,7 +81,7 @@ class PlayState extends StateHandler
             FlxG.sound.play("assets/sounds/jump.ogg");
         }
 
-		if (justPressed.ESCAPE) openSubState(new PauseMenu());
+		if (justPressed.ESCAPE #if mobile || TouchInput.BACK() #end) openSubState(new PauseMenu());
 
         super.update(elapsed);
     }

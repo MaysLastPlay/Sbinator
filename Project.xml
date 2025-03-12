@@ -28,7 +28,7 @@
 	<window if="desktop" orientation="landscape" fullscreen="false" resizable="true" />
 
 	<!--Mobile-specific-->
-	<window if="mobile" orientation="landscape" fullscreen="true" width="0" height="0" />
+	<window if="mobile" orientation="landscape" fullscreen="true" />
 
 	<!-- _____________________________ Path Settings ____________________________ -->
 
@@ -38,7 +38,7 @@
 	<assets path="assets" />
 
 	<!-- Turn on Crash Handler -->
-	<define name="CRASH_HANDLER" if="desktop release" />
+	<define name="CRASH_HANDLER" if="desktop release || mobile" />
 
 	<!-- _______________________________ Libraries ______________________________ -->
 
@@ -96,6 +96,12 @@
 	<!-- Haxe 4.3.0+: Enable pretty syntax errors and stuff. -->
 	<!-- pretty (haxeflixel default), indent, classic (haxe compiler default) -->
 	<haxedef name="message.reporting" value="pretty" />
+
+	  <section if="android">
+	  <config:android permission="android.permission.CAPTURE_AUDIO_OUTPUT" />
+	  <android target-sdk-version="34" />
+	  <android min-sdk-version="19" />
+	  </section>
 
 	<!-- _________________________________ Custom _______________________________ -->
 

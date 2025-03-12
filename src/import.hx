@@ -10,6 +10,7 @@ import data.backend.FramePerSecond.Watermark;
 import data.backend.Memory;
 import transition.Transition;
 import transition.StateHandler;
+import mobile.TouchInput;
 
 // States
 import states.PlayState;
