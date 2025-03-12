@@ -16,6 +16,10 @@ class InitState extends FlxState
     {
         super.create();
 
+        #if android
+	    	FlxG.android.preventDefaultKeys = [BACK];
+	    	#end
+
         #if DISCORD_ALLOWED
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In Initialization", null);
