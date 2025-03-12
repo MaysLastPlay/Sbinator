@@ -22,7 +22,7 @@ jobs:
         uses: actions/setup-java@main
         with:
           distribution: 'zulu'
-          java-version: '11'
+          java-version: '18'
 
       - name: Setup Haxe
         uses: krdlab/setup-haxe@master
@@ -41,14 +41,16 @@ jobs:
 
       - name: Installing Libraries
         run: |
-          haxelib install flixel
-          haxelib install flixel-addons
-          haxelib install flixel-ui
-          haxelib install lime 8.0.2
+          haxelib setup ~/haxelib
+          haxelib install flixel --quiet
+          haxelib install flixel-addons--quiet
+          haxelib install flixel-ui --quiet
+          haxelib install lime 8.0.2 --quiet
           haxelib set lime 8.0.2
-          haxelib install openfl
-          haxelib git hxcpp https://github.com/HaxeFoundation/hxcpp
+          haxelib install openfl --quiet
+          haxelib git hxcpp https://github.com/HaxeFoundation/hxcpp --quiet
           haxelib run lime rebuild hxcpp
+          haxelib list
 
       - name: Configure Android
         run: |
